@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ReelFinder - Filter by Genre</title>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-icon">
+            <img src="images/kklog.png" alt="Logo">
+        </div>
+        <h1>WatchWiser</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="Recommendations.html">Recommendations</a>
+            <a href="rate.html">Rate a Movie</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h2>Select Genre to Explore Movies</h2>
+        <div class="genre-filter">
+            <label for="genre-select">Choose a genre:</label>
+            <select id="genre-select" onchange="filterMovies()">
+                <option value="all">All</option>
+                <option value="horror">Horror</option>
+                <option value="comedy">Comedy</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+            </select>
+        </div>
+        <div class="movie-grid" id="movie-grid">
+            <div class="movie-card" data-genre="horror">
+                <img src="images/22.png" alt="Morbius">
+                <p>Morbius - A thrilling action-horror film about a biochemist turned living vampire.</p>
+                <a href="https://www.imdb.com/title/tt5108870/" target="_blank">
+                    <button>Watch Now</button>
+                </a>
+            </div>
+
+            <div class="movie-card" data-genre="horror">
+                <img src="images/20.png" alt="Robin des Bois">
+                <p>Robin des Bois - A dark horror reimagining of the Robin Hood legend.</p>
+                <a href="https://www.imdb.com/title/tt13486034/" target="_blank">
+                    <button>Watch Now</button>
+                </a>
+            </div>
+
+            <div class="movie-card" data-genre="comedy">
+                <img src="images/comedy1.png" alt="The Grand Budapest Hotel">
+                <p>The Grand Budapest Hotel - A hilarious comedy full of quirky characters.</p>
+                <a href="https://www.imdb.com/title/tt2278388/" target="_blank">
+                    <button>Watch Now</button>
+                </a>
+            </div>
+
+            <div class="movie-card" data-genre="action">
+                <img src="images/action1.png" alt="Mad Max: Fury Road">
+                <p>Mad Max: Fury Road - An action-packed post-apocalyptic thriller.</p>
+                <a href="https://www.imdb.com/title/tt1392190/" target="_blank">
+                    <button>Watch Now</button>
+                </a>
+            </div>
+
+            <div class="movie-card" data-genre="sci-fi">
+                <img src="images/sci-fi1.png" alt="Interstellar">
+                <p>Interstellar - A breathtaking sci-fi film exploring space and time.</p>
+                <a href="https://www.imdb.com/title/tt0816692/" target="_blank">
+                    <button>Watch Now</button>
+                </a>
+            </div>
+
+            <div class="movie-card" data-genre="drama">
+                <img src="images/drama1.png" alt="The Shawshank Redemption">
+                <p>The Shawshank Redemption - A timeless drama about hope and friendship.</p>
+                <a href="https://www.imdb.com/title/tt0111161/" target="_blank">
+                    <button>Watch Now</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 ReelFinder. All rights reserved.</p>
+    </div>
+
+    <script>
+        function filterMovies() {
+            const genre = document.getElementById('genre-select').value;
+            const movies = document.querySelectorAll('.movie-card');
+
+            movies.forEach(movie => {
+                if (genre === 'all' || movie.dataset.genre === genre) {
+                    movie.style.display = 'block';
+                } else {
+                    movie.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
